@@ -12,10 +12,67 @@ namespace ConstructiveWords
         static void Main(string[] args)
         {
             string path = @"TestFiles\wordlist.txt";
+
+            //lets start by sorting words
+            Stack<string> words = new Stack<string>(File.ReadAllLines(path).OrderBy(w => w.Length));
+
+                       
+            // from the first item, which is the longest, loop through the rest to find out if it is can be constructed completely by other words
+            // if not, move to the next item, which is the second longest.
+            // print the first valid item, continue to the end to count all possible words that meet the criteria
+
+            string LongestConstructiveWord = "";
+            int totalConstructiveWords = 0;
+            int minLength = words.Last().Length; // we keep this because words or size less than double min length will not be constructable 
+
+
+            while (words.Any())
+            {
+                string wordItem = words.Pop();
+
+                if (wordItem.Length >= minLength *2)
+                {
+
+                    string word = wordItem;
+
+                    foreach (string subWord in words)
+                    {
+                        while (word != "" && word.IndexOf(subWord) > -1)
+                        {
+                            word = word.Remove(word.IndexOf(subWord), subWord.Length);
+                        }
+
+                        if (word == "") break; // already done, no need to iterate the rest
+                    }
+
+                    if (String.IsNullOrWhiteSpace(word))
+                    {
+                        if (LongestConstructiveWord == "") LongestConstructiveWord = wordItem;
+                        totalConstructiveWords += 1;
+                    }
+                }
+
+
+            }
+            
+
+            Console.WriteLine("Longest word is: " + LongestConstructiveWord);
+            Console.WriteLine("number of words : " + totalConstructiveWords);
+
+            // furthermore, if we like to preview words that can be constructe from other list words, uncomment this ...
+            // Console.WriteLine( String.Join<string>(",", constructiveWords.ToArray()));
+
+
+            Console.ReadLine();
+        }
+
+        static void Test()
+        {
+            string path = @"TestFiles\wordlist.txt";
             List<string> words = File.ReadAllLines(path).ToList();
 
 
-            // List<string> words = new List<string>()
+            //List<string> words = new List<string>()
             //{
             //    "cat", "cats", "catsdogcats", "catxdogcatsrat", "dog", "dogcatsdog", "hippopotamuses", "rat", "ratcatdogcat"
             //};
@@ -34,10 +91,12 @@ namespace ConstructiveWords
                     {
                         if (!String.IsNullOrWhiteSpace(subWord))
                         {
-                            while (word.IndexOf(subWord) > -1)
+                            while (word != "" && word.IndexOf(subWord) > -1)
                             {
                                 word = word.Remove(word.IndexOf(subWord), subWord.Length);
                             }
+
+                            if (word == "") break; // already done, no need to iterate the rest
 
                         }
                     }
@@ -62,4 +121,6 @@ namespace ConstructiveWords
             Console.ReadLine();
         }
     }
+
+   
 }
