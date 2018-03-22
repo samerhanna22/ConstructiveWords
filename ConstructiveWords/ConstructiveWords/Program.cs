@@ -30,6 +30,9 @@ namespace ConstructiveWords
             {
                 string wordItem = words.Pop();
 
+                Console.WriteLine(words.Count);
+
+                // skip words of less than double minimmum length word
                 if (wordItem.Length >= minLength *2)
                 {
 
@@ -37,6 +40,10 @@ namespace ConstructiveWords
 
                     foreach (string subWord in words)
                     {
+                        // skip subWord if its length > wordItem.length - minLength
+                        if (subWord.Length > wordItem.Length - minLength ) continue;
+                        
+
                         while (word != "" && word.IndexOf(subWord) > -1)
                         {
                             word = word.Remove(word.IndexOf(subWord), subWord.Length);
