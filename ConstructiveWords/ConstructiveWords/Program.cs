@@ -30,7 +30,6 @@ namespace ConstructiveWords
             {
                 string wordItem = words.Pop();
 
-                Console.WriteLine(words.Count);
 
                 // skip words of less than double minimmum length word
                 if (wordItem.Length >= minLength *2)
