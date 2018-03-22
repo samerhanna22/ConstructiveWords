@@ -1,0 +1,7 @@
+C:\Users\Samer\Documents\GitHub\ConstructiveWords\ConstructiveWords\ConstructiveWords\bin\Debug\ConstructiveWords.exe.config
+C:\Users\Samer\Documents\GitHub\ConstructiveWords\ConstructiveWords\ConstructiveWords\bin\Debug\ConstructiveWords.exe
+C:\Users\Samer\Documents\GitHub\ConstructiveWords\ConstructiveWords\ConstructiveWords\bin\Debug\ConstructiveWords.pdb
+C:\Users\Samer\Documents\GitHub\ConstructiveWords\ConstructiveWords\ConstructiveWords\obj\Debug\ConstructiveWords.csprojResolveAssemblyReference.cache
+C:\Users\Samer\Documents\GitHub\ConstructiveWords\ConstructiveWords\ConstructiveWords\obj\Debug\ConstructiveWords.exe
+C:\Users\Samer\Documents\GitHub\ConstructiveWords\ConstructiveWords\ConstructiveWords\obj\Debug\ConstructiveWords.pdb
+C:\Users\Samer\Documents\GitHub\ConstructiveWords\ConstructiveWords\ConstructiveWords\bin\Debug\TestFiles\wordlist.txt
