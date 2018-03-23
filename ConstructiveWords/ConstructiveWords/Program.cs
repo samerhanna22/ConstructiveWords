@@ -16,7 +16,7 @@ namespace ConstructiveWords
             //lets start by sorting words
             Stack<string> words = new Stack<string>(File.ReadAllLines(path).OrderBy(w => w.Length));
 
-                       
+
             // from the first item, which is the longest, loop through the rest to find out if it is can be constructed completely by other words
             // if not, move to the next item, which is the second longest.
             // print the first valid item, continue to the end to count all possible words that meet the criteria
@@ -32,7 +32,7 @@ namespace ConstructiveWords
 
 
                 // skip words of less than double minimmum length word
-                if (wordItem.Length >= minLength *2)
+                if (wordItem.Length >= minLength * 2)
                 {
 
                     string word = wordItem;
@@ -40,8 +40,8 @@ namespace ConstructiveWords
                     foreach (string subWord in words)
                     {
                         // skip subWord if its length > wordItem.length - minLength
-                        if (subWord.Length > wordItem.Length - minLength ) continue;
-                        
+                        if (subWord.Length > wordItem.Length - minLength) continue;
+
 
                         while (word != "" && word.IndexOf(subWord) > -1)
                         {
@@ -53,16 +53,21 @@ namespace ConstructiveWords
 
                     if (String.IsNullOrWhiteSpace(word))
                     {
-                        if (LongestConstructiveWord == "") LongestConstructiveWord = wordItem;
+                        if (LongestConstructiveWord == "")
+                        {
+                            LongestConstructiveWord = wordItem;
+                            Console.WriteLine("Longest word is: " + LongestConstructiveWord);
+                            Console.WriteLine("Counting total number of constructive words is in progress ...");
+                        }
                         totalConstructiveWords += 1;
                     }
                 }
 
 
             }
-            
 
-            Console.WriteLine("Longest word is: " + LongestConstructiveWord);
+
+
             Console.WriteLine("number of words : " + totalConstructiveWords);
 
             // furthermore, if we like to preview words that can be constructe from other list words, uncomment this ...
@@ -72,8 +77,8 @@ namespace ConstructiveWords
             Console.ReadLine();
         }
 
-        
+
     }
 
-   
+
 }
